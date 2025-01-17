@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed;
     Rigidbody2D rb;
-    Vector2 moveDir;
+    public float lastHorizontalVector;
+    public float lastVerticalVector;
+
+    public Vector2 moveDir;
 
 
     // Start is called before the first frame update
@@ -22,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         InputManagement();
     }
 
-    private void FixedUpdate(){
+    void FixedUpdate(){
         Move();
     }
 
@@ -30,7 +33,13 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY =  Input.GetAxisRaw("Vertical");
         moveDir = new Vector2(moveX, moveY).normalized;
+        if (moveDir.x != 0){
+            lastHorizontalVector = moveDir.x;
+        }
 
+        if (moveDir.y !=0){
+            lastVerticalVector = moveDir.y;
+        }
     }
 
     void Move(){
