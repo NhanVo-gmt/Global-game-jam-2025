@@ -8,7 +8,7 @@
 
     public class GameManager : MonoBehaviour
     {
-        private enum State
+        public enum State
         {
             None,
             Shop,
@@ -22,6 +22,8 @@
         [Inject] private IScreenManager screenManager;
 
         #endregion
+
+        public static Action<State> OnChangeGameState;
         
         private void Awake()
         {
@@ -66,6 +68,8 @@
                     // todo startgame
                     break;
             }
+            
+            OnChangeGameState?.Invoke(currentState);
         }
     }
 }
