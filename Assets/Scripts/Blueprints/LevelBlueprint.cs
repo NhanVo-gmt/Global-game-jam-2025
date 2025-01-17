@@ -15,16 +15,8 @@ namespace Blueprints
     [CsvHeaderKey("Id")]
     public class LevelRecord
     {
-        public string                      Id;
-        public string                      Name;
-        public bool                        IsUnlockedByDefault;
-        public BlueprintByRow<StageRecord> StageRecords;
+        public string Id;
+        public string Name;
     }
 
-    [CsvHeaderKey("StageIndex")]
-    public class StageRecord
-    {
-        public int  StageIndex;
-        public bool IsStageUnlockedByDefault;
-    }
 }

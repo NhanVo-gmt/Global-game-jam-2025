@@ -1,13 +1,8 @@
 namespace Setting
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using DataManager.MasterData;
     using DataManager.UserData;
-    using GameFoundation.Scripts.Models;
-    using GameFoundation.Scripts.Utilities;
-    using UnityEngine;
 
     public class SettingManager : BaseDataManager<UserSetting>
     {
