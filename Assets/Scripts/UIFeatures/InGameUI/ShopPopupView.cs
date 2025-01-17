@@ -3,34 +3,49 @@ using Cysharp.Threading.Tasks;
 using DataManager.MasterData;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
+using GameFoundation.Scripts.Utilities.LogService;
 using GameFoundationBridge;
 using UnityEngine;
 using UnityEngine.UI;
 using UserData.Model;
 using Zenject;
 
-public class ShopScreenView : BaseView
+public class ShopPopupModel
+{
+    
+}
+
+public class ShopPopupView : BaseView
 {
     public Button skipBtn;
 }
 
-[ScreenInfo(nameof(ShopScreenView))]
-public class ShopScreenPresenter : BaseScreenPresenter<ShopScreenView>
+[PopupInfo(nameof(ShopPopupView), false, false )]
+public class ShopPopupPresenter : BasePopupPresenter<ShopPopupView, ShopPopupModel>
 {
     public static Action OnSkip;
 
-    public ShopScreenPresenter(SignalBus signalBus) : base(signalBus)
+    public ShopPopupPresenter(SignalBus signalBus, ILogService logService) : base(signalBus, logService)
     {
         
     }
-
-    public override UniTask BindData()
+    
+    public override UniTask BindData(ShopPopupModel popupModel)
     {
-        this.View.skipBtn.onClick.AddListener(() => OnSkip?.Invoke());
+        this.View.skipBtn.onClick.AddListener(Skip);
         
         return UniTask.CompletedTask;
     }
-    
+
+    private void Skip()
+    {
+        this.View.skipBtn.onClick.RemoveAllListeners();
+        
+        CloseView();
+
+        OnSkip?.Invoke();
+    }
+
     protected override void OnViewReady()
     {
         base.OnViewReady();
@@ -44,4 +59,5 @@ public class ShopScreenPresenter : BaseScreenPresenter<ShopScreenView>
         
         this.View.skipBtn.onClick.RemoveAllListeners();
     }
+    
 }
