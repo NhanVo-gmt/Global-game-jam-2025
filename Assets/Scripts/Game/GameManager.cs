@@ -11,8 +11,6 @@
         public enum State
         {
             None,
-            Shop,
-            Play,
         }
 
         [SerializeField] private State currentState = State.None;
@@ -28,30 +26,8 @@
         private void Awake()
         {
             this.GetCurrentContainer().Inject(this);
-            ChangeState(State.Shop);
-            
-            RegisterEvents();
         }
 
-        private void OnDestroy()
-        {
-            DeregisterEvents();
-        }
-
-        void RegisterEvents()
-        {
-            ShopPopupPresenter.OnSkip += Shop_OnSkip;
-        }
-        
-        void DeregisterEvents()
-        {
-            ShopPopupPresenter.OnSkip -= Shop_OnSkip;
-        }
-        
-        private void Shop_OnSkip()
-        {
-            ChangeState(State.Play);
-        }
 
         private void ChangeState(State newState)
         {
@@ -61,12 +37,6 @@
 
             switch (currentState)
             {
-                case State.Shop:
-                    screenManager.OpenScreen<ShopPopupPresenter, ShopPopupModel>(new());
-                    break;
-                case State.Play:
-                    // todo startgame
-                    break;
             }
             
             OnChangeGameState?.Invoke(currentState);
