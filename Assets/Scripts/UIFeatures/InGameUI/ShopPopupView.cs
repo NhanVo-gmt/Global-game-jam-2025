@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using DataManager.MasterData;
+using Game;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
 using GameFoundation.Scripts.Utilities.LogService;
@@ -12,7 +13,8 @@ using Zenject;
 
 public class ShopPopupModel
 {
-    
+    public GameManager   gameManager;
+    public PlayerManager playerManager;
 }
 
 public class ShopPopupView : BaseView
