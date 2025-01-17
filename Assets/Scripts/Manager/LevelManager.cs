@@ -11,15 +11,15 @@
         private readonly EnemyBlueprint enemyBlueprint;
         private readonly UpgradeBlueprint upgradeBlueprint;
         private readonly LevelBlueprint levelBlueprint;
-        private readonly CurrencyBlueprint currencyBlueprint;
         
-        public LevelManager(MasterDataManager masterDataManager, PlayerBlueprint playerBlueprint, EnemyBlueprint enemyBlueprint, UpgradeBlueprint upgradeBlueprint, LevelBlueprint levelBlueprint, CurrencyBlueprint currencyBlueprint) : base(masterDataManager)
+        public LevelManager(MasterDataManager masterDataManager, PlayerBlueprint playerBlueprint, 
+                            EnemyBlueprint enemyBlueprint, UpgradeBlueprint upgradeBlueprint, 
+                            LevelBlueprint levelBlueprint) : base(masterDataManager)
         {
             this.playerBlueprint   = playerBlueprint;
             this.enemyBlueprint    = enemyBlueprint;
             this.upgradeBlueprint  = upgradeBlueprint;
             this.levelBlueprint    = levelBlueprint;
-            this.currencyBlueprint = currencyBlueprint;
         }
         
         
