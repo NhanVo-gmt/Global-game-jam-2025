@@ -26,6 +26,9 @@
 
         public static GameManager   Instance;
         public static Action<State> OnChangeGameState;
+
+        public int              Point;
+        public Action<int, int> OnAddedPoint;
         
         private void Awake()
         {
@@ -37,11 +40,20 @@
 
             Instance = this;
             this.GetCurrentContainer().Inject(this);
+            
+            Point = 0;
         }
 
         public string GetRandomWord()
         {
             return levelManager.GetRandomWord(TypingType.Short);
+        }
+
+        public void AddPoint(int addedPoint)
+        {
+            Point += addedPoint;
+            
+            OnAddedPoint?.Invoke(Point, addedPoint);
         }
     }
 }

@@ -46,6 +46,12 @@ public class TypingObject : MonoBehaviour
         if (IsCorrectLetter(typedLetter))
         {
             RemoveLetter();
+
+            if (remainingText.Length == 0)
+            {
+                GameManager.Instance.AddPoint(1);
+                Destroy(gameObject);
+            }
         }
     }
 
