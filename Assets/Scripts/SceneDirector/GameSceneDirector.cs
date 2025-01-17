@@ -12,8 +12,7 @@ namespace GameFoundationBridge
     {
         public const string Loading          = "0.LoadingScene";
         public const string StartScene       = "1.StartScene";
-        public const string LevelSelectScene = "2.LevelSelectScene";
-        public const string GameScene        = "3.GameScene";
+        public const string GameScene        = "2.GameScene";
     }
 
     public class GameSceneDirector : SceneDirector
@@ -30,10 +29,10 @@ namespace GameFoundationBridge
         {
             return this.LoadSingleSceneBySceneManagerAsync(SceneName.StartScene);
         }
-
-        public async UniTask LoadLevelSelectScene()
+        
+        public UniTask LoadGameScene()
         {
-            await this.LoadSingleSceneBySceneManagerAsync(SceneName.LevelSelectScene);
+            return this.LoadSingleSceneBySceneManagerAsync(SceneName.GameScene);
         }
         
         public async UniTask LoadLevelScene(string id, int index)
