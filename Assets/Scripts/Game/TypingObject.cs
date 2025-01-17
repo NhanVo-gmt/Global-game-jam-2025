@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class TypingObject : MonoBehaviour
 
     private void Start()
     {
-        SetText(startText);
+        SetText(GameManager.Instance.GetRandomWord());
     }
 
     public void SetText(string text)
@@ -50,7 +51,7 @@ public class TypingObject : MonoBehaviour
 
     private bool IsCorrectLetter(string letter)
     {
-        return remainingText.Length > 0 && remainingText[0].ToString().ToLower().Equals(letter.ToLower());
+        return remainingText.Length > 0 && remainingText.IndexOf(letter, StringComparison.OrdinalIgnoreCase) == 0;
     }
 
     private void RemoveLetter()

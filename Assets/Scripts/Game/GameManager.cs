@@ -1,8 +1,10 @@
 ﻿namespace Game
 {
     using System;
+    using Blueprints;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
     using GameFoundation.Scripts.Utilities.Extension;
+    using Level;
     using UnityEngine;
     using Zenject;
 
@@ -18,28 +20,28 @@
         #region Inject
 
         [Inject] private IScreenManager screenManager;
+        [Inject] private LevelManager   levelManager;
 
         #endregion
 
+        public static GameManager   Instance;
         public static Action<State> OnChangeGameState;
         
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Destroy(this);
+                return;
+            }
+
+            Instance = this;
             this.GetCurrentContainer().Inject(this);
         }
 
-
-        private void ChangeState(State newState)
+        public string GetRandomWord()
         {
-            if (currentState == newState) return;
-            
-            currentState = newState;
-
-            switch (currentState)
-            {
-            }
-            
-            OnChangeGameState?.Invoke(currentState);
+            return levelManager.GetRandomWord(TypingType.Short);
         }
     }
 }
