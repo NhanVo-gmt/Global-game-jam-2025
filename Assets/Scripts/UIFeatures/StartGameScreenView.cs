@@ -10,7 +10,8 @@ using Zenject;
 
 public class StartGameScreenView : BaseView
 {
-
+    public Button startBtn;
+    public Button quitBtn;
 }
 
 [ScreenInfo(nameof(StartGameScreenView))]
@@ -33,8 +34,12 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
     {
         this.masterDataManager.InitializeData().Forget();
         
+        this.View.startBtn.onClick.AddListener(() => this.gameSceneDirector.LoadGameScene());
+        this.View.quitBtn.onClick.AddListener(() => Application.Quit());
+        
         return UniTask.CompletedTask;
     }
+    
     protected override void OnViewReady()
     {
         base.OnViewReady();
@@ -45,5 +50,8 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
     public override void Dispose()
     {
         base.Dispose();
+        
+        this.View.startBtn.onClick.RemoveAllListeners();
+        this.View.quitBtn.onClick.RemoveAllListeners();
     }
 }
