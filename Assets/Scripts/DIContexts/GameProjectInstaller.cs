@@ -5,6 +5,7 @@ namespace DIContexts
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
     using GameFoundation.Scripts.Utilities;
     using GameFoundationBridge;
+    using Level;
     using Setting;
     using UnityEngine.EventSystems;
     using Zenject;
@@ -28,6 +29,8 @@ namespace DIContexts
             this.Container.Bind<MasterAudio>().FromComponentInNewPrefabResource("GameAudio").AsCached().NonLazy();
             this.Container.BindInterfacesTo<AudioManager>().AsCached().NonLazy();
             
+            //Data
+            this.Container.Bind<LevelManager>().AsCached().NonLazy();
             
             //Loading
             this.Container.Bind<LoadingScreenView>().FromComponentInNewPrefabResource("LoadingScreenView").AsCached().NonLazy();
