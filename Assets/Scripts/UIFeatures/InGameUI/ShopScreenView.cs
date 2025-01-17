@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using DataManager.MasterData;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
@@ -10,25 +11,22 @@ using Zenject;
 
 public class ShopScreenView : BaseView
 {
-
+    public Button skipBtn;
 }
 
 [ScreenInfo(nameof(ShopScreenView))]
 public class ShopScreenPresenter : BaseScreenPresenter<ShopScreenView>
 {
-    #region Inject
-    
-    private readonly GameSceneDirector gameSceneDirector;
+    public static Action OnSkip;
 
-    #endregion
-
-    public ShopScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector) : base(signalBus)
+    public ShopScreenPresenter(SignalBus signalBus) : base(signalBus)
     {
-        this.gameSceneDirector = gameSceneDirector;
+        
     }
 
     public override UniTask BindData()
     {
+        this.View.skipBtn.onClick.AddListener(() => OnSkip?.Invoke());
         
         return UniTask.CompletedTask;
     }
@@ -43,5 +41,7 @@ public class ShopScreenPresenter : BaseScreenPresenter<ShopScreenView>
     public override void Dispose()
     {
         base.Dispose();
+        
+        this.View.skipBtn.onClick.RemoveAllListeners();
     }
 }
