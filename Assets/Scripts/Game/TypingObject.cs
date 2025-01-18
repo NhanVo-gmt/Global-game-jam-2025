@@ -8,8 +8,10 @@ using UnityEngine;
 public class TypingObject : MonoBehaviour
 {
     [SerializeField] private string          startText;
+    [SerializeField] private RectTransform   imageRect;
     [SerializeField] private TextMeshProUGUI typingUI;
 
+    private const float  IMAGE_BASE_LENGTH = 2f;
     private string remainingText;
     private string typeText;
 
@@ -36,6 +38,10 @@ public class TypingObject : MonoBehaviour
         }
         
         typingUI.text    = $"<color=red>{typeText}</color>{remainingText}";
+        
+        float textWidth = typingUI.preferredWidth;
+        imageRect.sizeDelta = 
+            new Vector2(IMAGE_BASE_LENGTH + textWidth, imageRect.sizeDelta.y);  
         typingUI.gameObject.SetActive(true);
     }
 
