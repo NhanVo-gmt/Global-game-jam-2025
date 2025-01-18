@@ -39,10 +39,6 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
         this.OpenViewAsync().Forget();
     }
     
-    public void LoadGameOverScene()
-    {
-        this.gameSceneDirector.LoadGameOverScene().Forget();
-    }
 
     public override void Dispose()
     {

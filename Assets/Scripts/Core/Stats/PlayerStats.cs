@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using DataManager.MasterData;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
+using GameFoundation.Scripts.Utilities.Extension;
 using GameFoundationBridge;
 using UnityEngine.UI;
 using UserData.Model;
@@ -14,7 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerScriptableObject playerData;
 
-    private GameScreenView gs;
+    [Inject] private GameSceneDirector gs;
 
     //current stats
     float currentMoveSpeed;
@@ -31,13 +32,14 @@ public class PlayerStats : MonoBehaviour
     bool isInvincible = false;
     void Awake()
     {
+        this.GetCurrentContainer().Inject(this);
+        
         currentMoveSpeed = playerData.MoveSpeed;
         currentHealth = playerData.MaxHealth;
         currentMight = playerData.Might;
         currentDashSpeed = playerData.DashSpeed;
         currentDashCooldown = playerData.DashCooldown;
         currentDashDuration = playerData.DashDuration;
-        gs = FindObjectOfType<GameScreenView>();
     }
     // Start is called before the first frame update
     void Start()
@@ -57,18 +59,21 @@ public class PlayerStats : MonoBehaviour
     }
     public void TakeDamage(float damage){
         Debug.LogWarning("Player has taken damage");
-        if (!isInvincible){
-        currentHealth -= damage;
-        invincibleTime = iFrameDuration;
-        isInvincible = true;
-        if (currentHealth <= 0){
-            Die();
-        }
+        if (!isInvincible)
+        {
+            currentHealth -= damage;
+            invincibleTime = iFrameDuration;
+            isInvincible = true;
+            
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
     public void Die(){
-        // gs.LoadGameOverScene();
+        gs.LoadGameOverScene();
     }
 
 }

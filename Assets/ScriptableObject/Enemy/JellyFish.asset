@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1b7ff376d5f6964e887fe5560a7ff37, type: 3}
-  m_Name: Cat
+  m_Name: JellyFish
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  maxHealth: 0
-  damage: 0
+  maxMoveSpeed: 0
+  minMoveSpeed: 0
+  maxHealth: 1
+  damage: 1

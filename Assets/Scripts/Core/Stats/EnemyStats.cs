@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,14 @@ public class EnemyStats : MonoBehaviour
 
     void Awake()
     {
-        currentHealth = enemyData.MaxHealth;
+        currentHealth    = enemyData.MaxHealth;
         currentMoveSpeed = enemyData.MoveSpeed;
-        currentDamage = enemyData.Damage;
+        currentDamage    = enemyData.Damage;
+    }
+
+    private void Start()
+    {
+        es = FindObjectOfType<EnemySpawner>();
     }
 
     public void TakeDamage(float damage){
@@ -31,7 +37,6 @@ public class EnemyStats : MonoBehaviour
     }
 
     void OnDestroy(){
-        es = FindObjectOfType<EnemySpawner>();
         es.onEnemyKilled();
     }
 

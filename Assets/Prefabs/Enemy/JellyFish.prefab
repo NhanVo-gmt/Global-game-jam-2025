@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 089520e0e4c5fb54f963a3a760c87fb2, type: 2}
+    - target: {fileID: 1147576115488806568, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 41042b92fcdc3e247b35a54a16eacb8d, type: 2}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish
       objectReference: {fileID: 0}
+    - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7975133892202658239, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
     m_RemovedGameObjects: []
@@ -89,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3472a791e5dd4f74ca27444cbbb36199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 41042b92fcdc3e247b35a54a16eacb8d, type: 2}
   force: 30
   stopTime: 2.5
 --- !u!50 &1062824502503684525

@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyScriptableObject : ScriptableObject
 {
     //Base stat
-    [SerializeField]
-    float moveSpeed;
-    public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
+    [SerializeField] float maxMoveSpeed;
+    [SerializeField] float minMoveSpeed;
+    public           float MoveSpeed { get => Random.Range(minMoveSpeed, maxMoveSpeed);  }
     
     [SerializeField]
     float maxHealth;

@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f6cc34e30bfa3fd4b96954858b772c38, type: 2}
+    - target: {fileID: 1147576115488806568, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 56a65a272eb25d248ab9506e8daf3e83, type: 2}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6
+      value: -11.19
       objectReference: {fileID: 0}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 5.45
       objectReference: {fileID: 0}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53,6 +57,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7975133892202658239, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 56a65a272eb25d248ab9506e8daf3e83, type: 2}
+    - target: {fileID: 7975133892202658239, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -63,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Name
       value: Shark
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
