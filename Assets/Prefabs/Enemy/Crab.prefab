@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: enemyData
       value: 
       objectReference: {fileID: 11400000, guid: 7295161c16b79de4aacc20ab83ea8090, type: 2}
+    - target: {fileID: 1147576115488806568, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: enemyDeath
+      value: 
+      objectReference: {fileID: 3710506087590377650}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.1004243
@@ -74,14 +78,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8175348920409831075, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 3710506087590377650}
   m_SourcePrefab: {fileID: 100100000, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
 --- !u!1 &6332273403905140086 stripped

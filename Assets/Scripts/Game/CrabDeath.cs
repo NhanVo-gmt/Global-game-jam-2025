@@ -18,10 +18,9 @@ public class CrabDeath : EnemyDeath
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, radius);
         foreach (var col in cols)
         {
-            if (col.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
+            if (col.TryGetComponent<PlayerStats>(out PlayerStats stats))
             {
-                Debug.Log(col.name);
-                //todo damage player
+                stats.TakeDamage(1);
             }
         }
     }
