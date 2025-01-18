@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyDeath : MonoBehaviour
 {
@@ -10,24 +11,31 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] protected float     rotateSpeed;
     [SerializeField] protected float     deathDuration;
     
-    protected TypingObject typingObject;
     protected Animator     animator;
+    protected EnemySpawner es;
 
     public bool   isDead { get; private set; } = false;
-    public Action OnDead;
+    public Action OnDeadAction;
 
     protected const string DIE_ANIM = "Die";
 
     protected virtual void Awake()
     {
-        animator                  =  GetComponentInChildren<Animator>();
-        typingObject              =  GetComponent<TypingObject>();
-        typingObject.OnFinishWord += OnFinishWord;
+        animator = GetComponentInChildren<Animator>();
 
         isDead = false;
     }
 
-    private void OnFinishWord()
+    private void Start()
+    {
+        es = FindObjectOfType<EnemySpawner>();
+    }
+    
+    void OnDestroy() {
+        es.onEnemyKilled();
+    }
+
+    public void OnDead()
     {
         StartCoroutine(DeathCoroutine());
     }
@@ -51,13 +59,13 @@ public class EnemyDeath : MonoBehaviour
             yield return null;
         }
         
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     protected virtual void Die()
     {
         isDead = true;
         animator.Play(DIE_ANIM);
-        OnDead?.Invoke();
+        OnDeadAction?.Invoke();
     }
 }

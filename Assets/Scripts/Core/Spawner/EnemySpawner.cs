@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0){
+        if (currentWaveCount < waves.Count){
             StartCoroutine(NextWave());
         }
         spawnTimer += Time.deltaTime;
@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         int currentWaveQuota = 0;
         foreach (var enemyGroup in waves[currentWaveCount].enemyGroups){
             currentWaveQuota += enemyGroup.enemyCount;
-            }
+        }
         waves[currentWaveCount].waveQuota = currentWaveQuota;
 
         Debug.LogWarning(currentWaveQuota);

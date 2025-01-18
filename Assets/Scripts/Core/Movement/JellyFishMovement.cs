@@ -23,7 +23,7 @@ public class JellyFishMovement : EnemyMovement
         base.Start();
 
         moveCoroutine     =  StartCoroutine(MoveCoroutine());
-        enemyDeath.OnDead += () =>
+        enemyDeath.OnDeadAction += () =>
         {
             StopCoroutine(moveCoroutine);
             moveCoroutine = null;
