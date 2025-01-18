@@ -12,29 +12,23 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] protected float     deathDuration;
     
     protected Animator     animator;
-    protected EnemySpawner es;
+    protected EnemySpawner_2 es;
 
     public bool   isDead { get; private set; } = false;
     public Action OnDeadAction;
-
     protected const string DIE_ANIM = "Die";
 
     protected virtual void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-
+        es = FindObjectOfType<EnemySpawner_2>();
         isDead = false;
     }
 
     private void Start()
     {
-        es = FindObjectOfType<EnemySpawner>();
     }
     
-    void OnDestroy() {
-        es.onEnemyKilled();
-    }
-
     public void OnDead()
     {
         StartCoroutine(DeathCoroutine());
@@ -44,8 +38,8 @@ public class EnemyDeath : MonoBehaviour
     {
         Die();
         
-        float startTime = Time.deltaTime;
-        while (startTime + deathDuration >= Time.deltaTime)
+        float startTime = Time.time;
+        while (startTime + deathDuration >= Time.time)
         {
             transform.Translate(Vector2.up * flySpeed * Time.deltaTime);
             
@@ -65,6 +59,7 @@ public class EnemyDeath : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
+        es.onEnemyKilled();
         animator.Play(DIE_ANIM);
         OnDeadAction?.Invoke();
     }
