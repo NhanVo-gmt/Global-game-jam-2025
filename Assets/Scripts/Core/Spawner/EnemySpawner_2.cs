@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner_2 : MonoBehaviour
 {
@@ -39,6 +41,8 @@ public class EnemySpawner_2 : MonoBehaviour
     public AudioSource source;
 
     public AudioClip bubbleClip;
+    
+    public static Action OnKillEnemy;
 
     void Start()
     {
@@ -103,5 +107,7 @@ public class EnemySpawner_2 : MonoBehaviour
         
         source.volume = Random.Range(0.8f, 1f);
         source.PlayOneShot(bubbleClip);
+        
+        OnKillEnemy?.Invoke();
     }
 }
