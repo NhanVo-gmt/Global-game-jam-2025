@@ -3334,7 +3334,6 @@ GameObject:
   - component: {fileID: 840622725}
   - component: {fileID: 840622726}
   - component: {fileID: 840622728}
-  - component: {fileID: 840622727}
   m_Layer: 0
   m_Name: banana_cat_death_0
   m_TagString: Untagged
@@ -3409,21 +3408,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &840622727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840622724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae8f78301f4f56b41ac895d6ecb33d78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 4
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
-  numberOfFlashes: 0
 --- !u!95 &840622728
 Animator:
   serializedVersion: 5
