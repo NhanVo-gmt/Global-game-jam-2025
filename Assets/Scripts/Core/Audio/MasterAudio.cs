@@ -19,8 +19,9 @@ public class MasterAudio : MonoBehaviour
     {
         if (Instance != null) Destroy(gameObject);
 
-        Instance         = this;
-        musicAudioSource = GetComponent<AudioSource>();
+        Instance                = this;
+        musicAudioSource        = GetComponent<AudioSource>();
+        musicAudioSource.volume = 0.05f;
     }
 
     private void Start()
@@ -44,7 +45,6 @@ public class MasterAudio : MonoBehaviour
 
     public void ToggleSound()
     {
-        Debug.Log(123);
         settingManager.SetSoundState(soundAudioSource.mute);
         soundAudioSource.mute = !soundAudioSource.mute;
     }

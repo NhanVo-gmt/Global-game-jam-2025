@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Declare variables
-    Rigidbody2D rb;
+    Rigidbody2D                   rb;
     public PlayerScriptableObject characterData;
-    bool isDashing = false;
-    bool canDash = true;
-    public float lastHorizontalVector;
-    public float lastVerticalVector;
-    public Vector2 moveDir;
+    public PlayerSound            playerSound;
+    public float                  lastHorizontalVector;
+    public float                  lastVerticalVector;
+    public Vector2                moveDir;
+
+    private bool isDashing = false;
+    bool         canDash   = true;
 
     public ParticleSystem dashParticle;
 
@@ -58,10 +60,17 @@ public class PlayerMovement : MonoBehaviour
             return;
         };
         rb.velocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);
+
+        if (moveDir == Vector2.zero)
+        {
+            playerSound.StopRun();
+        }
+        else playerSound.PlayRun();
     }
 
     IEnumerator Dash(){
         dashParticle.Play();
+        playerSound.PlayDash();
         canDash = false;
         isDashing = true;
         rb.velocity = new Vector2(moveDir.x * characterData.DashSpeed, moveDir.y * characterData.DashSpeed);    
