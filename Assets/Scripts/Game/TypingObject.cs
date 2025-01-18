@@ -34,6 +34,7 @@ public class TypingObject : MonoBehaviour
         if (remainingText.Length == 0)
         {
             typingUI.gameObject.SetActive(false);
+            imageRect.gameObject.SetActive(false);
             return;
         }
         
@@ -41,7 +42,9 @@ public class TypingObject : MonoBehaviour
         
         float textWidth = typingUI.preferredWidth;
         imageRect.sizeDelta = 
-            new Vector2(IMAGE_BASE_LENGTH + textWidth, imageRect.sizeDelta.y);  
+            new Vector2(IMAGE_BASE_LENGTH + textWidth, imageRect.sizeDelta.y);
+        
+        imageRect.gameObject.SetActive(true);
         typingUI.gameObject.SetActive(true);
     }
 

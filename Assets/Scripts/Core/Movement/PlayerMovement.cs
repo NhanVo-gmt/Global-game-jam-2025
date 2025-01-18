@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float lastVerticalVector;
     public Vector2 moveDir;
 
+    public ParticleSystem dashParticle;
 
 
 
@@ -60,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator Dash(){
+        dashParticle.Play();
         canDash = false;
         isDashing = true;
         rb.velocity = new Vector2(moveDir.x * characterData.DashSpeed, moveDir.y * characterData.DashSpeed);    
@@ -67,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(characterData.DashCooldown);
         canDash = true;
+        dashParticle.Stop();
     }
 
 }
