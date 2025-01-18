@@ -29,7 +29,14 @@ public class TypingObject : MonoBehaviour
 
     void UpdateUI()
     {
-        typingUI.text = $"<color=red>{typeText}</color>{remainingText}";
+        if (remainingText.Length == 0)
+        {
+            typingUI.enabled = false;
+            return;
+        }
+        
+        typingUI.text    = $"<color=red>{typeText}</color>{remainingText}";
+        typingUI.enabled = true;
     }
 
     private void Update()
