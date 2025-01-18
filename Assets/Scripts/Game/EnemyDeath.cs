@@ -11,10 +11,14 @@ public class EnemyDeath : MonoBehaviour
     [SerializeField] private float     deathDuration;
     
     private TypingObject typingObject;
+    private Animator     animator;
+
+    private const string DIE_ANIM = "Die";
 
     private void Awake()
     {
-        typingObject = GetComponent<TypingObject>();
+        animator                  =  GetComponentInChildren<Animator>();
+        typingObject              =  GetComponent<TypingObject>();
         typingObject.OnFinishWord += OnFinishWord;
     }
 
@@ -25,6 +29,8 @@ public class EnemyDeath : MonoBehaviour
 
     IEnumerator DeathCoroutine()
     {
+        animator.Play(DIE_ANIM);
+        
         float startTime = Time.deltaTime;
         while (startTime + deathDuration >= Time.deltaTime)
         {
