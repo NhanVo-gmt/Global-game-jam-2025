@@ -3,27 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JellyFishMovement : MonoBehaviour
+public class JellyFishMovement : EnemyMovement
 {
     public float force;
     public float stopTime;
     
-    private Transform      player;
     private Rigidbody2D    rb;
     private Coroutine      moveCoroutine;
-    private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    protected override void Awake()
     {
-        rb             = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        base.Awake();
+        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().transform;
+        base.Start();
 
-        moveCoroutine = StartCoroutine(MoveCoroutine());
+        moveCoroutine     =  StartCoroutine(MoveCoroutine());
+        enemyDeath.OnDead += () =>
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        };
     }
 
     IEnumerator MoveCoroutine()
