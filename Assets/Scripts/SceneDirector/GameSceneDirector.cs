@@ -31,9 +31,9 @@ namespace GameFoundationBridge
             return this.LoadSingleSceneBySceneManagerAsync(SceneName.StartScene);
         }
         
-        public UniTask LoadGameScene()
+        public async UniTask LoadGameScene()
         {
-            return this.LoadSingleSceneBySceneManagerAsync(SceneName.GameScene);
+            await this.LoadSingleSceneBySceneManagerAsync(SceneName.GameScene);
         }
         
         
