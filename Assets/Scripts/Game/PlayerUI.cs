@@ -19,6 +19,8 @@ public class PlayerUI : MonoBehaviour
     [Header("PointUI")]
     [SerializeField] private TextMeshProUGUI pointText;
 
+    
+
     private void Awake()
     {
         
