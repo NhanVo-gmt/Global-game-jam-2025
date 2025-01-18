@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 534554154650389296, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f6cc34e30bfa3fd4b96954858b772c38, type: 2}
+      objectReference: {fileID: 9100000, guid: d0fde885ebff93645a6fc611a3d3267e, type: 2}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6
@@ -59,10 +59,10 @@ PrefabInstance:
     - target: {fileID: 8602965879337599532, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2056102287, guid: a306c7c50677d8c45b744a098ee874af, type: 3}
+      objectReference: {fileID: -398488029, guid: 9c0c10889a4ed1a479408cccc70491ab, type: 3}
     - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Name
-      value: Shark
+      value: Crab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
