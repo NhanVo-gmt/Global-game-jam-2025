@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +16,21 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Sprite activeHealth;
     [SerializeField] private Sprite inActiveHealth;
 
+    [Header("PointUI")]
+    [SerializeField] private TextMeshProUGUI pointText;
+
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
+        UpdatePointUI(GameManager.Instance.Point);
         UpdateHealthUI(playerStats.currentHealth);
-        playerStats.OnChangedHealth += UpdateHealthUI;
+
+        GameManager.Instance.OnAddedPoint += UpdatePointUI;
+        playerStats.OnChangedHealth       += UpdateHealthUI;
     }
 
     private void OnDestroy()
@@ -36,5 +49,10 @@ public class PlayerUI : MonoBehaviour
         {
             healthImages[i].sprite = inActiveHealth;
         }
+    }
+
+    void UpdatePointUI(int point, int addedPoint = 0)
+    {
+        pointText.text = point.ToString();
     }
 }
