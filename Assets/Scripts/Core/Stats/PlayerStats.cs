@@ -63,7 +63,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (currentHealth < 0) return;
         
-        Debug.LogWarning("Player has taken damage");
+        // Debug.LogWarning("Player has taken damage");
         if (!isInvincible)
         {
             currentHealth -= damage;
@@ -81,7 +81,7 @@ public class PlayerStats : MonoBehaviour
             else
             {
                 playerSound.PlayHit();
-                anim.Hit();
+                anim.Hit(iFrameDuration);
             }
         }
     }
