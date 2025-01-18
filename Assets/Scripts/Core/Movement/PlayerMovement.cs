@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Game;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,6 +38,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void InputManagement(){
+
+        if (GameManager.Instance.GetCurrentState() == GameManager.State.Paused)
+        {if (Input.GetKeyDown(KeyCode.Escape)){
+                GameManager.Instance.UnpauseGame();
+            }
+            return;
+            }
+        if (GameManager.Instance.GetCurrentState() == GameManager.State.None)
+        {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            GameManager.Instance.PauseGame();
+            return;}
         if (isDashing){
             return;
         };
@@ -53,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
+    }
     }
 
     void Move(){
