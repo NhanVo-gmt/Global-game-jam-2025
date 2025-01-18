@@ -13,6 +13,9 @@ public class EnemyDeath : MonoBehaviour
     private TypingObject typingObject;
     private Animator     animator;
 
+    public bool   isDead { get; private set; } = false;
+    public Action OnDead;
+
     private const string DIE_ANIM = "Die";
 
     private void Awake()
@@ -20,6 +23,8 @@ public class EnemyDeath : MonoBehaviour
         animator                  =  GetComponentInChildren<Animator>();
         typingObject              =  GetComponent<TypingObject>();
         typingObject.OnFinishWord += OnFinishWord;
+
+        isDead = false;
     }
 
     private void OnFinishWord()
@@ -29,7 +34,9 @@ public class EnemyDeath : MonoBehaviour
 
     IEnumerator DeathCoroutine()
     {
+        isDead = true;
         animator.Play(DIE_ANIM);
+        OnDead?.Invoke();
         
         float startTime = Time.deltaTime;
         while (startTime + deathDuration >= Time.deltaTime)
