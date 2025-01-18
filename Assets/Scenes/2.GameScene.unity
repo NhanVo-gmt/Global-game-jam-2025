@@ -4066,6 +4066,10 @@ PrefabInstance:
       value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: 3675988725992371378, guid: 60cd3a42659d8fc4e93cca88bf060482, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675988725992371378, guid: 60cd3a42659d8fc4e93cca88bf060482, type: 3}
       propertyPath: relativeSpawnPoints.Array.size
       value: 26
       objectReference: {fileID: 0}

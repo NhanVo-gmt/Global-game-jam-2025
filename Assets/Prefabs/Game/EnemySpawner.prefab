@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9099489953875128863}
   - component: {fileID: 3675988725992371378}
+  - component: {fileID: 4222424134958916373}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705795829508257943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4574eb024a3b74d4e94c6f9a923aec8b, type: 3}
   m_Name: 
@@ -98,6 +99,84 @@ MonoBehaviour:
   - {fileID: 8068494098661141578}
   - {fileID: 8757509279708806911}
   - {fileID: 2756598081731896807}
+--- !u!114 &4222424134958916373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705795829508257943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73eedd32c65fc30468028f258c03b8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - waveName: Easy
+    enemyGroups:
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      enemyName: Fish
+      enemyRate: 1
+    waveQuota: 30
+    spawnInterval: 5
+  - waveName: Medium
+    enemyGroups:
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      enemyName: Fish
+      enemyRate: 0.8
+    - enemyPrefab: {fileID: 6332273403905140086, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      enemyName: JellyFish
+      enemyRate: 0.2
+    waveQuota: 60
+    spawnInterval: 3
+  - waveName: Hard
+    enemyGroups:
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      enemyName: Fish
+      enemyRate: 0.5
+    - enemyPrefab: {fileID: 6332273403905140086, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      enemyName: Jelly Fish
+      enemyRate: 0.3
+    - enemyPrefab: {fileID: 6332273403905140086, guid: c9317f793cd82134d875dcc7ec053b0f, type: 3}
+      enemyName: Shark
+      enemyRate: 0.1
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 1c7aedb9f75230d4485930b94f246de4, type: 3}
+      enemyName: Crab
+      enemyRate: 0.1
+    waveQuota: 60
+    spawnInterval: 3
+  - waveName: Extreme
+    enemyGroups:
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      enemyName: Fish
+      enemyRate: 0.3
+    - enemyPrefab: {fileID: 6332273403905140086, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      enemyName: Jelly Fish
+      enemyRate: 0.2
+    - enemyPrefab: {fileID: 6332273403905140086, guid: c9317f793cd82134d875dcc7ec053b0f, type: 3}
+      enemyName: Shark
+      enemyRate: 0.2
+    - enemyPrefab: {fileID: 6332273403905140086, guid: 1c7aedb9f75230d4485930b94f246de4, type: 3}
+      enemyName: Crab
+      enemyRate: 0.2
+    - enemyPrefab: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      enemyName: Squid
+      enemyRate: 0.1
+    waveQuota: 60
+    spawnInterval: 3
+  currentWaveCount: 0
+  Timer: 0
+  waveInterval: 5
+  enemiesAlive: 0
+  maxEnemiesAllowed: 5
+  maxEnemiesReached: 0
+  relativeSpawnPoints:
+  - {fileID: 2756598081731896807}
+  - {fileID: 5045563300585668772}
+  - {fileID: 2193177033311860159}
+  - {fileID: 8068494098661141578}
+  - {fileID: 8757509279708806911}
+  - {fileID: 3929436319779185835}
 --- !u!1 &1405683025695360963
 GameObject:
   m_ObjectHideFlags: 0
