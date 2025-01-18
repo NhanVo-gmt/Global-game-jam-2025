@@ -1,8 +1,10 @@
 ﻿namespace Game
 {
     using System;
+    using Blueprints;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
     using GameFoundation.Scripts.Utilities.Extension;
+    using Level;
     using UnityEngine;
     using Zenject;
 
@@ -11,8 +13,6 @@
         public enum State
         {
             None,
-            Shop,
-            Play,
         }
 
         [SerializeField] private State currentState = State.None;
@@ -20,56 +20,40 @@
         #region Inject
 
         [Inject] private IScreenManager screenManager;
+        [Inject] private LevelManager   levelManager;
 
         #endregion
 
+        public static GameManager   Instance;
         public static Action<State> OnChangeGameState;
+
+        public int              Point;
+        public Action<int, int> OnAddedPoint;
         
         private void Awake()
         {
-            this.GetCurrentContainer().Inject(this);
-            ChangeState(State.Shop);
-            
-            RegisterEvents();
-        }
-
-        private void OnDestroy()
-        {
-            DeregisterEvents();
-        }
-
-        void RegisterEvents()
-        {
-            ShopPopupPresenter.OnSkip += Shop_OnSkip;
-        }
-        
-        void DeregisterEvents()
-        {
-            ShopPopupPresenter.OnSkip -= Shop_OnSkip;
-        }
-        
-        private void Shop_OnSkip()
-        {
-            ChangeState(State.Play);
-        }
-
-        private void ChangeState(State newState)
-        {
-            if (currentState == newState) return;
-            
-            currentState = newState;
-
-            switch (currentState)
+            if (Instance != null)
             {
-                case State.Shop:
-                    screenManager.OpenScreen<ShopPopupPresenter, ShopPopupModel>(new());
-                    break;
-                case State.Play:
-                    // todo startgame
-                    break;
+                Destroy(this);
+                return;
             }
+
+            Instance = this;
+            this.GetCurrentContainer().Inject(this);
             
-            OnChangeGameState?.Invoke(currentState);
+            Point = 0;
+        }
+
+        public string GetRandomWord()
+        {
+            return levelManager.GetRandomWord(TypingType.Short);
+        }
+
+        public void AddPoint(int addedPoint)
+        {
+            Point += addedPoint;
+            
+            OnAddedPoint?.Invoke(Point, addedPoint);
         }
     }
 }
