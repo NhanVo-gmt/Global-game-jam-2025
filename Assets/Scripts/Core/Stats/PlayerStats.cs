@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,12 +20,14 @@ public class PlayerStats : MonoBehaviour
     private          PlayerAnimation   anim;
 
     //current stats
-    float currentMoveSpeed;
-    float currentHealth;
-    float currentMight;
-    float currentDashSpeed;
-    float currentDashCooldown;
-    float currentDashDuration;
+    float      currentMoveSpeed;
+    float      currentMight;
+    float      currentDashSpeed;
+    float      currentDashCooldown;
+    float      currentDashDuration;
+    public int currentHealth { get; private set; }
+
+    public Action<int> OnChangedHealth;
 
     //I-Frame
     [Header("I-Frame")]
@@ -55,13 +58,15 @@ public class PlayerStats : MonoBehaviour
             isInvincible = false;
         }
     }
-    public void TakeDamage(float damage){
+    public void TakeDamage(int damage){
         Debug.LogWarning("Player has taken damage");
         if (!isInvincible)
         {
             currentHealth -= damage;
             invincibleTime = iFrameDuration;
             isInvincible = true;
+            
+            OnChangedHealth?.Invoke(currentHealth);
             
             if (currentHealth <= 0)
             {

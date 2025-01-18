@@ -11,7 +11,7 @@ public class EnemyStats : MonoBehaviour
     protected TypingObject typingObject;
     private   float        currentHealth;
     float                  currentMoveSpeed;
-    float                  currentDamage;
+    int                  currentDamage;
 
 
     void Awake()
