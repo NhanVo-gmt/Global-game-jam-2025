@@ -7,11 +7,11 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
 
     public class Wave{
-        public string waveName;
-        public List<EnemyGroup> enemyGroups;
-        public int waveQuota;
-        public float spawnInterval;
-        public int spawnCount;
+        public string waveName; 
+        public List<EnemyGroup> enemyGroups; 
+        public int waveQuota; // Number of enemy in this wave
+        public float spawnInterval; // Time between each spawn of enemy
+        public int spawnCount; // Number of enemy already spawned in this wave
     }
 
     [System.Serializable]
@@ -19,20 +19,23 @@ public class EnemySpawner : MonoBehaviour
     public class EnemyGroup{
         public GameObject enemyPrefab;
         public string enemyName;
-        public int enemyCount;
-        public int spawnCount;
+        public int enemyCount; // Number of enemy in this stage
+        public int spawnCount; // Number of enemy already spawned
     }
 
-    public List<Wave> waves;
-    public int currentWaveCount;
+    public List<Wave> waves; //List of all the waves
+    public int currentWaveCount; // Index of current wave
 
     [Header("Spawner Attributes")]
-    float spawnTimer;
+    float spawnTimer; // Timer to decide when to spawn next enemy
     Transform player;
-    public float waveInterval;
+    public float waveInterval; //Interval between waves
     public int enemiesAlive;
-    public int maxEnemiesAllowed;
+    public int maxEnemiesAllowed; //Max numbeer of enemies allowed at once
     public bool maxEnemiesReached = false;
+
+    [Header("Spawn Position")]
+    public List<Transform> relativeSpawnPoints;
 
     void Start()
     {
@@ -44,6 +47,9 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0){
+            StartCoroutine(NextWave());
+        }
         spawnTimer += Time.deltaTime;
 
         if (spawnTimer >= waves[currentWaveCount].spawnInterval){
@@ -62,6 +68,14 @@ public class EnemySpawner : MonoBehaviour
         Debug.LogWarning(currentWaveQuota);
     }
 
+    IEnumerator NextWave(){
+        yield return new WaitForSeconds(waveInterval);
+        if(currentWaveCount < waves.Count - 1){
+            currentWaveCount++;
+            CalculateWaveQuota();
+        }
+    }
+
     void SpawnEnemies(){
         if (waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota && !maxEnemiesReached){
             foreach (var enemyGroup in waves[currentWaveCount].enemyGroups){
@@ -71,10 +85,10 @@ public class EnemySpawner : MonoBehaviour
                         maxEnemiesReached = true;
                         return;
                     }
-                    //Spawn enemy on random pos near player
-                    Vector2 spawnPosition = new Vector2(player.position.x + Random.Range(-10f, 10f), player.position.y + Random.Range(-10f, 10f));
-                    Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
-                    
+
+                    //Spawn enemy at random spawn point
+                    Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
+                                        
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
                 }

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public  float    moveSpeed;
-
+    public EnemyScriptableObject enemyData;
     private Transform player;
     private SpriteRenderer spriteRenderer;
 
@@ -29,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.MoveSpeed * Time.deltaTime);
 
         if (player.transform.position.x < transform.position.x)
         {
