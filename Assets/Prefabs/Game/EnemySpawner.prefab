@@ -166,7 +166,7 @@ MonoBehaviour:
     spawnInterval: 1
   currentWaveCount: 0
   Timer: 0
-  waveInterval: 5
+  waveInterval: 2
   enemiesAlive: 0
   maxEnemiesAllowed: 5
   maxEnemiesReached: 0
