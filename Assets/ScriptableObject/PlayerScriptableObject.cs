@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerScriptableObject : ScriptableObject
 {
     [SerializeField]
-    float maxHealth;
-    public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
+    int maxHealth;
+    public int MaxHealth { get => maxHealth; private set => maxHealth = value; }
 
     [SerializeField]
     float moveSpeed;
