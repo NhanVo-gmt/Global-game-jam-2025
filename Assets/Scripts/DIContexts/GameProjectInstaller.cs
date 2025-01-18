@@ -32,6 +32,9 @@ namespace DIContexts
             //Data
             this.Container.Bind<LevelManager>().AsCached().NonLazy();
             
+            //Loading
+            // this.Container.Bind<LoadingUI>().FromComponentInNewPrefabResource("LoadingCanvas").AsCached().NonLazy();
+            
             //Common Event System
             this.Container.Bind<EventSystem>().FromComponentInNewPrefabResource(nameof(EventSystem)).AsSingle().NonLazy();
             

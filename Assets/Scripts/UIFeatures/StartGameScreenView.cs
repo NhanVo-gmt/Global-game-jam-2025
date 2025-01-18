@@ -10,8 +10,9 @@ using Zenject;
 
 public class StartGameScreenView : BaseView
 {
-    public Button startBtn;
-    public Button quitBtn;
+    public Button    startBtn;
+    public Button    quitBtn;
+    public LoadingUI loadingUI;
 }
 
 [ScreenInfo(nameof(StartGameScreenView))]
@@ -34,10 +35,17 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
     {
         this.masterDataManager.InitializeData().Forget();
         
-        this.View.startBtn.onClick.AddListener(() => this.gameSceneDirector.LoadGameScene());
+        this.View.startBtn.onClick.AddListener(() => LoadGameScene());
         this.View.quitBtn.onClick.AddListener(() => Application.Quit());
         
         return UniTask.CompletedTask;
+    }
+
+    async void LoadGameScene()
+    {
+        await this.View.loadingUI.PlayOutro();
+
+        this.gameSceneDirector.LoadGameScene().Forget();
     }
     
     protected override void OnViewReady()
