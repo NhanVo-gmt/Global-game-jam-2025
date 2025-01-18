@@ -5425,6 +5425,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1523017111998069311, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217595792324846362, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217595792324846362, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217595792324846362, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217595792324846362, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217595792324846362, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7133799589121625666, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
@@ -5464,6 +5488,10 @@ PrefabInstance:
     - target: {fileID: 7133799589121625666, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172666644421348141, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8566914413929396730, guid: a3668bf4e687228469ba3ab1995ce0e7, type: 3}
       propertyPath: m_Name
