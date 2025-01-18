@@ -6,11 +6,12 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    float currentHealth;
-    float currentMoveSpeed;
-    float currentDamage;    
+    public EnemyDeath            enemyDeath;
 
-    EnemySpawner es;
+    protected TypingObject typingObject;
+    private   float        currentHealth;
+    float                  currentMoveSpeed;
+    float                  currentDamage;
 
 
     void Awake()
@@ -18,12 +19,16 @@ public class EnemyStats : MonoBehaviour
         currentHealth    = enemyData.MaxHealth;
         currentMoveSpeed = enemyData.MoveSpeed;
         currentDamage    = enemyData.Damage;
+        
+        typingObject              =  GetComponent<TypingObject>();
+        typingObject.OnFinishWord += OnFinishWord;
+    }
+    
+    private void OnFinishWord()
+    {
+        TakeDamage(1f);
     }
 
-    private void Start()
-    {
-        es = FindObjectOfType<EnemySpawner>();
-    }
 
     public void TakeDamage(float damage){
         currentHealth -= damage;
@@ -32,17 +37,14 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void Die(){
-        Destroy(gameObject);
-    }
-
-    void OnDestroy(){
-        es.onEnemyKilled();
+    public void Die()
+    {
+        enemyDeath.OnDead();
     }
 
     void OnTriggerStay2D(Collider2D col)
     {    
-            if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enemy hit player");
             PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
