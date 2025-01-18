@@ -27,7 +27,7 @@
         public static GameManager   Instance;
         public static Action<State> OnChangeGameState;
 
-        public int              Point;
+        public static int              Point;
         public Action<int, int> OnAddedPoint;
         
         private void Awake()

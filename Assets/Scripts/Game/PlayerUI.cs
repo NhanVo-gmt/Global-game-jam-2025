@@ -26,7 +26,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        UpdatePointUI(GameManager.Instance.Point);
+        UpdatePointUI(GameManager.Point);
         UpdateHealthUI(playerStats.currentHealth);
 
         GameManager.Instance.OnAddedPoint += UpdatePointUI;
