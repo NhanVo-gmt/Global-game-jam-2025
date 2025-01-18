@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    [SerializeField] private Transform visual;
-    [SerializeField] private float     flySpeed;
-    [SerializeField] private float     rotateSpeed;
-    [SerializeField] private float     deathDuration;
+    [SerializeField] protected Transform visual;
+    [SerializeField] protected float     flySpeed;
+    [SerializeField] protected float     rotateSpeed;
+    [SerializeField] protected float     deathDuration;
     
-    private TypingObject typingObject;
-    private Animator     animator;
+    protected TypingObject typingObject;
+    protected Animator     animator;
 
     public bool   isDead { get; private set; } = false;
     public Action OnDead;
 
-    private const string DIE_ANIM = "Die";
+    protected const string DIE_ANIM = "Die";
 
-    private void Awake()
+    protected virtual void Awake()
     {
         animator                  =  GetComponentInChildren<Animator>();
         typingObject              =  GetComponent<TypingObject>();
@@ -34,9 +34,7 @@ public class EnemyDeath : MonoBehaviour
 
     IEnumerator DeathCoroutine()
     {
-        isDead = true;
-        animator.Play(DIE_ANIM);
-        OnDead?.Invoke();
+        Die();
         
         float startTime = Time.deltaTime;
         while (startTime + deathDuration >= Time.deltaTime)
@@ -54,5 +52,12 @@ public class EnemyDeath : MonoBehaviour
         }
         
         gameObject.SetActive(false);
+    }
+
+    protected virtual void Die()
+    {
+        isDead = true;
+        animator.Play(DIE_ANIM);
+        OnDead?.Invoke();
     }
 }

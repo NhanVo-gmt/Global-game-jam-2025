@@ -11,14 +11,14 @@ PrefabInstance:
     - target: {fileID: 534554154650389296, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f6cc34e30bfa3fd4b96954858b772c38, type: 2}
+      objectReference: {fileID: 9100000, guid: d0fde885ebff93645a6fc611a3d3267e, type: 2}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6
+      value: 3.1004243
       objectReference: {fileID: 0}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 2.1603615
       objectReference: {fileID: 0}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,13 +59,43 @@ PrefabInstance:
     - target: {fileID: 8602965879337599532, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2056102287, guid: a306c7c50677d8c45b744a098ee874af, type: 3}
+      objectReference: {fileID: -398488029, guid: 9c0c10889a4ed1a479408cccc70491ab, type: 3}
     - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Name
-      value: Shark
+      value: Crab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3710506087590377650}
   m_SourcePrefab: {fileID: 100100000, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+--- !u!1 &6332273403905140086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+  m_PrefabInstance: {fileID: 3028538997098336755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3710506087590377650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332273403905140086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6094b0dfb459a1140b57a6c2124c5ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visual: {fileID: 7133399657745633532}
+  flySpeed: 2
+  rotateSpeed: 50
+  deathDuration: 3
+  radius: 2
+--- !u!4 &7133399657745633532 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5258345218492891407, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+  m_PrefabInstance: {fileID: 3028538997098336755}
+  m_PrefabAsset: {fileID: 0}
