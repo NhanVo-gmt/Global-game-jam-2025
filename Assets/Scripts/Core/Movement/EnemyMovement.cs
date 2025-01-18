@@ -6,16 +6,18 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    private Transform player;
-    private SpriteRenderer spriteRenderer;
+    protected Transform      player;
+    protected SpriteRenderer spriteRenderer;
+    protected EnemyDeath     enemyDeath;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        enemyDeath     = GetComponent<EnemyDeath>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
     }
@@ -23,6 +25,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyDeath.isDead) return;
+        
         Move();
     }
 
