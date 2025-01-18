@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour
 {
 
     public PlayerScriptableObject playerData;
+    public PlayerSound playerSound;
 
     [Inject] private GameSceneDirector gs;
     private          PlayerAnimation   anim;
@@ -58,7 +59,10 @@ public class PlayerStats : MonoBehaviour
             isInvincible = false;
         }
     }
-    public void TakeDamage(int damage){
+    public void TakeDamage(int damage)
+    {
+        if (currentHealth < 0) return;
+        
         Debug.LogWarning("Player has taken damage");
         if (!isInvincible)
         {
@@ -70,18 +74,27 @@ public class PlayerStats : MonoBehaviour
             
             if (currentHealth <= 0)
             {
+                playerSound.PlayDie();
                 Die();
                 anim.Die();
             }
             else
             {
+                playerSound.PlayHit();
                 anim.Hit();
             }
         }
     }
 
-    public void Die(){
-        gs.LoadGameOverScene();
+    public void Die()
+    {
+        StartCoroutine(DieCoroutine());
     }
 
+    IEnumerator DieCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        
+        gs.LoadGameOverScene();
+    }
 }
