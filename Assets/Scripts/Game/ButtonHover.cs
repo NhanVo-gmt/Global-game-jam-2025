@@ -15,7 +15,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Sprite hoverSprite;
 
     private float    lerpDuration = 0.5f;
-    private Sequence sequence     = DOTween.Sequence();
+    private Sequence sequence;
     
     public void OnPointerEnter(PointerEventData eventData)
     {

@@ -14,6 +14,10 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     [SerializeField] private State currentState = State.None;
+
+    [Header("Flash")]
+    [SerializeField] private Color flashColor;
+    [SerializeField] private int numberOfFlashes;
     
     //Declaration
     Animator       am;
@@ -51,9 +55,35 @@ public class PlayerAnimation : MonoBehaviour
         am.Play(currentState.ToString());
     }
 
-    public void Hit()
+    public void Hit(float invincibleTime)
     {
         ChangeState(State.Hit);
+        StartCoroutine(FlashCoroutine(invincibleTime, flashColor, numberOfFlashes));
+    }
+
+    public IEnumerator FlashCoroutine(float flashDuration, Color flashColor, int numberOfFlashes)
+    {
+        Color startColor             = sr.color;
+        float elapsedFlashTime       = 0;
+        float elapsedFlashPercentage = 0;
+
+        while (elapsedFlashTime < flashDuration)
+        {
+            elapsedFlashTime       += Time.deltaTime;
+            elapsedFlashPercentage =  elapsedFlashTime / flashDuration;
+
+            if (elapsedFlashPercentage > 1)
+            {
+                elapsedFlashPercentage = 1;
+            }
+            
+            float pingPongPercentage = Mathf.PingPong(elapsedFlashPercentage * 2 * numberOfFlashes, 1);
+            sr.color = Color.Lerp(startColor, flashColor, pingPongPercentage);
+
+            yield return null;
+        }
+
+        
     }
     
     public void Die()
