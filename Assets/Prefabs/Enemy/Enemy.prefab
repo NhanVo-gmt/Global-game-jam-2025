@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077bfd35424b1b24e905c76834a56b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 1104741068204490016}
   visual: {fileID: 5258345218492891407}
   flySpeed: 2
   rotateSpeed: 30

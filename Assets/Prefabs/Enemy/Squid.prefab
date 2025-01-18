@@ -86,9 +86,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 4550170220216137558}
   m_SourcePrefab: {fileID: 100100000, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+--- !u!61 &2689594600446487763 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1104741068204490016, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+  m_PrefabInstance: {fileID: 3028538997098336755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6332273403905140086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
@@ -106,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bcffbec9a8d23439ba2ea1df0fe6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 2689594600446487763}
   visual: {fileID: 7133399657745633532}
   flySpeed: 2
   rotateSpeed: 50

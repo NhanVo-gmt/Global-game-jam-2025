@@ -7,10 +7,11 @@ using UnityEngine.Serialization;
 
 public class EnemyDeath : MonoBehaviour
 {
-    [SerializeField] protected Transform visual;
-    [SerializeField] protected float     flySpeed;
-    [SerializeField] protected float     rotateSpeed;
-    [SerializeField] protected float     deathDuration;
+    [SerializeField] protected Collider2D col;
+    [SerializeField] protected Transform  visual;
+    [SerializeField] protected float      flySpeed;
+    [SerializeField] protected float      rotateSpeed;
+    [SerializeField] protected float      deathDuration;
     
     protected Animator     animator;
     protected EnemySpawner_2 es;
@@ -26,10 +27,11 @@ public class EnemyDeath : MonoBehaviour
         isDead = false;
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        col.enabled = true;
     }
-    
+
     public void OnDead()
     {
         StartCoroutine(DeathCoroutine());
@@ -59,6 +61,8 @@ public class EnemyDeath : MonoBehaviour
 
     protected virtual void Die()
     {
+        col.enabled = false;
+        
         isDead = true;
         es.onEnemyKilled();
         animator.Play(DIE_ANIM);
