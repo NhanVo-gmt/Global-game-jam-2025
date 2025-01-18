@@ -10,6 +10,7 @@ public class CrabDeath : EnemyDeath
     {
         base.Die();
         
+        DamageArea();
     }
 
     void DamageArea()
@@ -19,6 +20,7 @@ public class CrabDeath : EnemyDeath
         {
             if (col.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
             {
+                Debug.Log(col.name);
                 //todo damage player
             }
         }
