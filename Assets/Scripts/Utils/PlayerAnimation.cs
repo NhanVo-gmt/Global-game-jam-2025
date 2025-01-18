@@ -19,7 +19,6 @@ public class PlayerAnimation : MonoBehaviour
     Animator       am;
     PlayerMovement pm;
     SpriteRenderer sr;
-    private bool   canChangeState = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +45,9 @@ public class PlayerAnimation : MonoBehaviour
 
     void ChangeState(State newState)
     {
-        if (!canChangeState || currentState == newState || currentState == State.Die) return;
-        
+        if (currentState == newState || currentState == State.Die) return;
+
+        currentState = newState;
         am.Play(currentState.ToString());
     }
 
