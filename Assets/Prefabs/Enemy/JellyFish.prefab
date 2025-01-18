@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 30
-  stopTime: 3
+  stopTime: 2.5
 --- !u!50 &1062824502503684525
 Rigidbody2D:
   serializedVersion: 4
