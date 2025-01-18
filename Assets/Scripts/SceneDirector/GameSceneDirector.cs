@@ -13,6 +13,7 @@ namespace GameFoundationBridge
         public const string Loading          = "0.LoadingScene";
         public const string StartScene       = "1.StartScene";
         public const string GameScene        = "2.GameScene";
+        public const string GameOverScene    = "3.GameOverScene";
     }
 
     public class GameSceneDirector : SceneDirector
@@ -39,6 +40,10 @@ namespace GameFoundationBridge
         {
             string levelName = $"Level{id}Stage{index}";
             await this.LoadMultipleSceneBySceneManagerAsync(SceneName.GameScene, SceneName.GameScene, levelName);
+        }
+        public UniTask LoadGameOverScene()
+        {
+            return this.LoadSingleSceneBySceneManagerAsync(SceneName.GameOverScene);
         }
 
         #endregion

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d8c9e0c092dc5c14fa367eb339eeec0b, type: 2}
+    - target: {fileID: 1104741068204490016, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6398656230334576376, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
       propertyPath: m_Name
       value: FishOrange
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188023377280549817, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

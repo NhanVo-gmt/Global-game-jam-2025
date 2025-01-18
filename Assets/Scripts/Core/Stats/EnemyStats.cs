@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-
     float currentHealth;
     float currentMoveSpeed;
     float currentDamage;    
+
+    EnemySpawner es;
+
 
     void Awake()
     {
@@ -28,20 +30,19 @@ public class EnemyStats : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
-    {
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+    void OnDestroy(){
+        es = FindObjectOfType<EnemySpawner>();
         es.onEnemyKilled();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerStay2D(Collider2D col)
+    {    
+            if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Enemy hit player");
+            PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
+            player.TakeDamage(currentDamage);
+        }
     }
 }
+

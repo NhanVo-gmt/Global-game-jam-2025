@@ -10,14 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 7133799589121625666}
   - component: {fileID: 6970822257530196141}
-  - component: {fileID: 7304768108959998739}
   - component: {fileID: 554432323689609505}
   - component: {fileID: 5853377049867734885}
   - component: {fileID: 1953361242102141824}
   - component: {fileID: 4776161778171808670}
+  - component: {fileID: 3345970173345602115}
+  - component: {fileID: 5408184145218265828}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,47 +76,20 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1208542369
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 829598408, guid: 2255f874158f3d0468193229ea4a49db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.41666666, y: 0.625}
+  m_Size: {x: 0.4166667, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7304768108959998739
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8566914413929396730}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &554432323689609505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,13 +127,13 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.41666666, y: 0.625}
-    newSize: {x: 0.41666666, y: 0.625}
+    newSize: {x: 0.4166667, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.41666666, y: 0.625}
+  m_Size: {x: 0.4166667, y: 0.625}
   m_EdgeRadius: 0
 --- !u!114 &5853377049867734885
 MonoBehaviour:
@@ -173,10 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06dac25ace189a54ba4e851cf452ba84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  dashSpeed: 7
-  dashCooldown: 3
-  dashDuration: 0.7
+  characterData: {fileID: 11400000, guid: ce0d13f6aba12ac4293f9a1426521186, type: 2}
   lastHorizontalVector: 0
   lastVerticalVector: 0
   moveDir: {x: 0, y: 0}
@@ -213,3 +184,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8f78301f4f56b41ac895d6ecb33d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3345970173345602115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566914413929396730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbe44169e00e714e9271d8368058300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: ce0d13f6aba12ac4293f9a1426521186, type: 2}
+  iFrameDuration: 10
+--- !u!50 &5408184145218265828
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566914413929396730}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0

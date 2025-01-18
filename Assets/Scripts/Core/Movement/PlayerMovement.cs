@@ -5,12 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Declare variables
-
-    public float moveSpeed;
-    public float dashSpeed;
-    public float dashCooldown;
-    public float dashDuration;
     Rigidbody2D rb;
+    public PlayerScriptableObject characterData;
     bool isDashing = false;
     bool canDash = true;
     public float lastHorizontalVector;
@@ -60,16 +56,16 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing){
             return;
         };
-        rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+        rb.velocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);
     }
 
     IEnumerator Dash(){
         canDash = false;
         isDashing = true;
-        rb.velocity = new Vector2(moveDir.x * dashSpeed, moveDir.y * dashSpeed);    
-        yield return new WaitForSeconds(dashDuration);
+        rb.velocity = new Vector2(moveDir.x * characterData.DashSpeed, moveDir.y * characterData.DashSpeed);    
+        yield return new WaitForSeconds(characterData.DashDuration);
         isDashing = false;
-        yield return new WaitForSeconds(dashCooldown);
+        yield return new WaitForSeconds(characterData.DashCooldown);
         canDash = true;
     }
 
