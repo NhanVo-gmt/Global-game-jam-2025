@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Blueprints;
 
 [CreateAssetMenu(fileName = "EnemyScriptableObject", menuName = "ScriptableObjects/Enemy")]
 public class EnemyScriptableObject : ScriptableObject
@@ -17,4 +18,6 @@ public class EnemyScriptableObject : ScriptableObject
     [SerializeField]
     int damage;
     public int Damage{get => damage; private set => damage = value;}
+
+    public TypingType type;
 }
