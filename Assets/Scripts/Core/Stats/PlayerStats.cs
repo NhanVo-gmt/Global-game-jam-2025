@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerScriptableObject playerData;
 
     [Inject] private GameSceneDirector gs;
+    private          PlayerAnimation   anim;
 
     //current stats
     float currentMoveSpeed;
@@ -33,6 +34,8 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         this.GetCurrentContainer().Inject(this);
+
+        anim = GetComponent<PlayerAnimation>();
         
         currentMoveSpeed = playerData.MoveSpeed;
         currentHealth = playerData.MaxHealth;
@@ -40,11 +43,6 @@ public class PlayerStats : MonoBehaviour
         currentDashSpeed = playerData.DashSpeed;
         currentDashCooldown = playerData.DashCooldown;
         currentDashDuration = playerData.DashDuration;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -68,6 +66,11 @@ public class PlayerStats : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Die();
+                anim.Die();
+            }
+            else
+            {
+                anim.Hit();
             }
         }
     }
