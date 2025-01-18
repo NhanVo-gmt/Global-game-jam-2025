@@ -1,15 +1,19 @@
 ﻿using System;
+using GameFoundation.Scripts.Utilities.ObjectPool;
 using UnityEngine;
+using Zenject;
 
 public class CrabDeath : EnemyDeath
 {
     [Header("Damage")]
+    public GameObject prefab;
     public float radius;
     
     protected override void Die()
     {
         base.Die();
-        
+
+        Instantiate(prefab, transform.position, Quaternion.identity);
         DamageArea();
     }
 

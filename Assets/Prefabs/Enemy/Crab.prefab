@@ -110,6 +110,7 @@ MonoBehaviour:
   flySpeed: 2
   rotateSpeed: 50
   deathDuration: 3
+  prefab: {fileID: 3025464684979375042, guid: a5b43fc50fd0e394fba270fe8e5b464c, type: 3}
   radius: 2
 --- !u!4 &7133399657745633532 stripped
 Transform:
