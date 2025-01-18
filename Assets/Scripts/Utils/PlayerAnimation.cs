@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Watermelon;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class PlayerAnimation : MonoBehaviour
         Idle,
         Move,
         Hit,
-        Die
+        Die,
+        Attack,
     }
 
     [SerializeField] private State currentState = State.None;
+
+    [Header("Attack")]
+    [SerializeField] private float attackDuration = 1f;
 
     [Header("Flash")]
     [SerializeField] private Color flashColor;
@@ -24,6 +29,8 @@ public class PlayerAnimation : MonoBehaviour
     PlayerMovement pm;
     SpriteRenderer sr;
 
+    private bool canChangeState = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +38,15 @@ public class PlayerAnimation : MonoBehaviour
         pm = GetComponent<PlayerMovement>();
         sr = GetComponent<SpriteRenderer>();
 
+        EnemySpawner_2.OnKillEnemy += OnKillEnemy;
+
         ChangeState(State.Idle);
+    }
+    
+    private void OnKillEnemy()
+    {
+        ChangeState(State.Attack, false);
+        Tween.DelayedCall(attackDuration, () => canChangeState = true);
     }
 
     // Update is called once per frame
@@ -47,11 +62,12 @@ public class PlayerAnimation : MonoBehaviour
         
     }
 
-    void ChangeState(State newState)
+    void ChangeState(State newState, bool newChangeState = true)
     {
-        if (currentState == newState || currentState == State.Die) return;
+        if (!canChangeState || currentState == newState || currentState == State.Die) return;
 
-        currentState = newState;
+        canChangeState = newChangeState;
+        currentState   = newState;
         am.Play(currentState.ToString());
     }
 

@@ -9845,6 +9845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  attackDuration: 0.8
+  flashColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+  numberOfFlashes: 10
 --- !u!114 &3345970173345602115
 MonoBehaviour:
   m_ObjectHideFlags: 0
