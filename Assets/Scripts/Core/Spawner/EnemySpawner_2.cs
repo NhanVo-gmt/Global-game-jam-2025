@@ -35,6 +35,11 @@ public class EnemySpawner_2 : MonoBehaviour
     [Header("Spawn Position")]
     public List<Transform> relativeSpawnPoints;
 
+    [Header("Sound")]
+    public AudioSource source;
+
+    public AudioClip bubbleClip;
+
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -94,5 +99,8 @@ public class EnemySpawner_2 : MonoBehaviour
     //Called when an enemy is killed
     public void onEnemyKilled(){
         enemiesAlive--;
+        
+        source.volume = Random.Range(0.8f, 1f);
+        source.PlayOneShot(bubbleClip);
     }
 }

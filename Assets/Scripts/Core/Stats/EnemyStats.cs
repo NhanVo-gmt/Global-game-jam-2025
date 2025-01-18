@@ -46,7 +46,7 @@ public class EnemyStats : MonoBehaviour
     {    
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enemy hit player");
+            // Debug.Log("Enemy hit player");
             PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
             player.TakeDamage(currentDamage);
         }
