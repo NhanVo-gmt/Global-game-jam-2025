@@ -30,7 +30,7 @@ public class EnemySpawner_2 : MonoBehaviour
     public int enemiesAlive;
     public int maxEnemiesAllowed; //Max numbeer of enemies allowed at once
     public bool maxEnemiesReached = false;
-    bool spawn ;
+    float spawn ;
 
     [Header("Spawn Position")]
     public List<Transform> relativeSpawnPoints;
@@ -80,15 +80,16 @@ public class EnemySpawner_2 : MonoBehaviour
         if (enemiesAlive < maxEnemiesAllowed){
             maxEnemiesReached = false;
         }
-        if ((Timer < waves[currentWaveCount].waveQuota || !(currentWaveCount < waves.Count)) && !maxEnemiesReached){
+        if ((Timer < waves[currentWaveCount].waveQuota || !(currentWaveCount < waves.Count-1)) && !maxEnemiesReached){
+            spawn = Random.Range(0.0f, 1.0f);
             foreach (var enemyGroup in waves[currentWaveCount].enemyGroups){
-                spawn = Random.Range(0.0f, 1.0f) <= enemyGroup.enemyRate;
-                if (spawn){
+                if (spawn <= enemyGroup.enemyRate){
                     //Spawn enemy at random spawn point
                     Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
                     enemiesAlive++;
                     return;
                 }
+                spawn = spawn - enemyGroup.enemyRate ;
             }
             // Instantiate(waves[currentWaveCount].enemyGroups[0].enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
             // enemiesAlive++;

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using Game;
 using TMPro;
 using UnityEngine;
+using Blueprints;
 
 public class TypingObject : MonoBehaviour
 {
     [SerializeField] private string          startText;
     [SerializeField] private RectTransform   imageRect;
     [SerializeField] private TextMeshProUGUI typingUI;
-
+    
+    public EnemyScriptableObject enemyData;
     private const float  IMAGE_BASE_LENGTH = 2f;
     private string remainingText;
     private string typeText;
@@ -19,12 +21,13 @@ public class TypingObject : MonoBehaviour
 
     private void Start()
     {
-        SetText(GameManager.Instance.GetRandomWord());
+        SetText(enemyData.type);
     }
 
-    public void SetText(string text)
+    public void SetText(TypingType type)
     {
-        remainingText = text;
+
+        remainingText = GameManager.Instance.GetRandomWord(type);
         typeText      = "";
         UpdateUI();
     }

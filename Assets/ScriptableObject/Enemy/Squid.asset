@@ -16,3 +16,4 @@ MonoBehaviour:
   minMoveSpeed: 1.5
   maxHealth: 1
   damage: 1
+  type: 2

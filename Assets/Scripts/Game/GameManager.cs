@@ -44,9 +44,9 @@
             Point = 0;
         }
 
-        public string GetRandomWord()
+        public string GetRandomWord(TypingType type)
         {
-            return levelManager.GetRandomWord(TypingType.Short);
+            return levelManager.GetRandomWord(type);
         }
 
         public void AddPoint(int addedPoint)

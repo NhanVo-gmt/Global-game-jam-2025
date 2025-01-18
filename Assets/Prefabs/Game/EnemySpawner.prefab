@@ -118,7 +118,7 @@ MonoBehaviour:
       enemyName: Fish
       enemyRate: 1
     waveQuota: 30
-    spawnInterval: 5
+    spawnInterval: 3
   - waveName: Medium
     enemyGroups:
     - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
@@ -128,7 +128,7 @@ MonoBehaviour:
       enemyName: JellyFish
       enemyRate: 0.2
     waveQuota: 60
-    spawnInterval: 3
+    spawnInterval: 2
   - waveName: Hard
     enemyGroups:
     - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
@@ -144,7 +144,7 @@ MonoBehaviour:
       enemyName: Crab
       enemyRate: 0.1
     waveQuota: 60
-    spawnInterval: 3
+    spawnInterval: 1
   - waveName: Extreme
     enemyGroups:
     - enemyPrefab: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
@@ -159,14 +159,14 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 6332273403905140086, guid: 1c7aedb9f75230d4485930b94f246de4, type: 3}
       enemyName: Crab
       enemyRate: 0.2
-    - enemyPrefab: {fileID: 9072300446648743045, guid: b57d19e12e7d6984c829a4e78d0dc9ce, type: 3}
+    - enemyPrefab: {fileID: 6332273403905140086, guid: f44fd6b8b2580f6418b3b1ea6c37c957, type: 3}
       enemyName: Squid
       enemyRate: 0.1
     waveQuota: 60
-    spawnInterval: 3
+    spawnInterval: 1
   currentWaveCount: 0
   Timer: 0
-  waveInterval: 5
+  waveInterval: 2
   enemiesAlive: 0
   maxEnemiesAllowed: 5
   maxEnemiesReached: 0
