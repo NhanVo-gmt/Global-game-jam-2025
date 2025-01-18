@@ -260,6 +260,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2445312150227122826, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: hoverSprite
+      value: 
+      objectReference: {fileID: 419238813, guid: 60cc3f7327654ee4182a1109c3a9eb21, type: 3}
+    - target: {fileID: 2445312150227122826, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: -1836165216, guid: 60cc3f7327654ee4182a1109c3a9eb21, type: 3}
     - target: {fileID: 3058453767528786510, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 16.999992
@@ -280,6 +288,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 5049651084075925738, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1836165216, guid: 60cc3f7327654ee4182a1109c3a9eb21, type: 3}
+    - target: {fileID: 5062993186766531029, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062993186766531029, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 419238813, guid: 60cc3f7327654ee4182a1109c3a9eb21, type: 3}
     - target: {fileID: 6900789700484554141, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
