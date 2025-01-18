@@ -13,6 +13,8 @@ public class TypingObject : MonoBehaviour
     private string remainingText;
     private string typeText;
 
+    public Action OnFinishWord;
+
     private void Start()
     {
         SetText(GameManager.Instance.GetRandomWord());
@@ -50,7 +52,7 @@ public class TypingObject : MonoBehaviour
             if (remainingText.Length == 0)
             {
                 GameManager.Instance.AddPoint(1);
-                Destroy(gameObject);
+                OnFinishWord?.Invoke();
             }
         }
     }
