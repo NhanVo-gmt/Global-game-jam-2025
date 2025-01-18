@@ -122,6 +122,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &61416230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6332273403905140086, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_Name
+      value: JellyFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271740173144319755, guid: e6000431f01bfc743827b82952f39b80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6000431f01bfc743827b82952f39b80, type: 3}
 --- !u!1001 &386253250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_Name
       value: FishOrange_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8271740173144319755, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3146,6 +3207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishOrange_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8271740173144319755, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -3581,6 +3646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishOrange_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8271740173144319755, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.53
@@ -3637,6 +3706,10 @@ PrefabInstance:
     - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_Name
       value: FishOrange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8271740173144319755, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3740,6 +3813,10 @@ PrefabInstance:
     - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_Name
       value: FishOrange_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332273403905140086, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8271740173144319755, guid: 609fb722b76e50f44b7314c4e16a039f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4145,3 +4222,4 @@ SceneRoots:
   - {fileID: 784717511}
   - {fileID: 840180025}
   - {fileID: 413070282}
+  - {fileID: 61416230}
