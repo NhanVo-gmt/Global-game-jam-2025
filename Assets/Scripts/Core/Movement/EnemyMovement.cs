@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected EnemyDeath     enemyDeath;
 
+    
     protected virtual void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
