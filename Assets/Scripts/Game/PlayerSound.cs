@@ -11,11 +11,12 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioClip runClip;
     [SerializeField] private AudioClip dashClip;
     [SerializeField] private AudioClip buttonClip;
+    [SerializeField] private AudioClip hitClip;
+    [SerializeField] private AudioClip dieClip;
 
     public void PlayDash()
     {
-        oneShotSource.volume = Random.Range(0.8f, 1f);
-        oneShotSource.PlayOneShot(dashClip);
+        oneShotSource.PlayOneShot(dashClip, Random.Range(0.8f, 1f));
     }
 
     public void PlayRun()
@@ -31,6 +32,16 @@ public class PlayerSound : MonoBehaviour
         if (source.clip != runClip) return;
         
         source.Stop();
+    }
+
+    public void PlayHit()
+    {
+        oneShotSource.PlayOneShot(hitClip, Random.Range(0.8f, 1f));
+    }
+    
+    public void PlayDie()
+    {
+        oneShotSource.PlayOneShot(dieClip, Random.Range(0.8f, 1f));
     }
 
     private void Update()
