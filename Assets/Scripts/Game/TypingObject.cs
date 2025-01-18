@@ -31,12 +31,12 @@ public class TypingObject : MonoBehaviour
     {
         if (remainingText.Length == 0)
         {
-            typingUI.enabled = false;
+            typingUI.gameObject.SetActive(false);
             return;
         }
         
         typingUI.text    = $"<color=red>{typeText}</color>{remainingText}";
-        typingUI.enabled = true;
+        typingUI.gameObject.SetActive(true);
     }
 
     private void Update()
